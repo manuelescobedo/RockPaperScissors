@@ -9,66 +9,54 @@ namespace RockPaperScissors.Tests
         [Fact]
         public void When_UserPicksRock_Should_WinScissors()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Rock), new Player("CPU", GameOption.Scissors)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Rock, GameOption.Scissors);
 
             Assert.Equal(gameResult, GameResult.Win);
         }
         [Fact]
         public void When_UserPicksRock_Should_LostPaper()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Rock), new Player("CPU", GameOption.Paper)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Rock, GameOption.Paper);
 
             Assert.Equal(gameResult, GameResult.Lost);
         }
         [Fact]
         public void When_UserPicksPaper_Should_WinRock()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Paper), new Player("CPU", GameOption.Rock)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Paper, GameOption.Rock);
 
             Assert.Equal(gameResult, GameResult.Win);
         }
         [Fact]
         public void When_UserPicksPaper_Should_LostScissors()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Paper), new Player("CPU", GameOption.Scissors)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Paper, GameOption.Scissors);
 
             Assert.Equal(gameResult, GameResult.Lost);
         }
         [Fact]
         public void When_UserPicksScissors_Should_WinPaper()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Scissors), new Player("CPU", GameOption.Paper)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Scissors, GameOption.Paper);
 
             Assert.Equal(gameResult, GameResult.Win);
         }
         [Fact]
         public void When_UserPicksScissors_Should_LostRock()
         {
-            var match = new Match(
-                new Player("P1", GameOption.Scissors), new Player("CPU", GameOption.Rock)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(GameOption.Scissors, GameOption.Rock);
 
             Assert.Equal(gameResult, GameResult.Lost);
         }
@@ -78,11 +66,9 @@ namespace RockPaperScissors.Tests
         [InlineData(GameOption.Scissors, GameOption.Scissors)]
         public void When_UserPicksSameAsCPU_Should_Tie(GameOption p1, GameOption p2)
         {
-            var match = new Match(
-                new Player("P1", p1), new Player("CPU", p2)
-            );
+            MatchService match = new MatchService();
 
-            var gameResult = match.DecideWinner();
+            var gameResult = match.DecideWinner(p1, p2);
 
             Assert.Equal(gameResult, GameResult.Tie);
         }
