@@ -13,7 +13,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Rock, GameOption.Scissors);
 
-            Assert.Equal(gameResult, GameResult.Win);
+            Assert.Equal( GameResult.Win,gameResult);
         }
         [Fact]
         public void When_UserPicksRock_Should_LostPaper()
@@ -22,7 +22,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Rock, GameOption.Paper);
 
-            Assert.Equal(gameResult, GameResult.Lost);
+            Assert.Equal(GameResult.Lost,gameResult);
         }
         [Fact]
         public void When_UserPicksPaper_Should_WinRock()
@@ -31,7 +31,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Paper, GameOption.Rock);
 
-            Assert.Equal(gameResult, GameResult.Win);
+            Assert.Equal(GameResult.Win,gameResult);
         }
         [Fact]
         public void When_UserPicksPaper_Should_LostScissors()
@@ -40,7 +40,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Paper, GameOption.Scissors);
 
-            Assert.Equal(gameResult, GameResult.Lost);
+            Assert.Equal(GameResult.Lost, gameResult);
         }
         [Fact]
         public void When_UserPicksScissors_Should_WinPaper()
@@ -49,7 +49,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Scissors, GameOption.Paper);
 
-            Assert.Equal(gameResult, GameResult.Win);
+            Assert.Equal(GameResult.Win,gameResult);
         }
         [Fact]
         public void When_UserPicksScissors_Should_LostRock()
@@ -58,7 +58,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(GameOption.Scissors, GameOption.Rock);
 
-            Assert.Equal(gameResult, GameResult.Lost);
+            Assert.Equal( GameResult.Lost, gameResult);
         }
         [Theory]
         [InlineData(GameOption.Paper, GameOption.Paper)]
@@ -70,7 +70,7 @@ namespace RockPaperScissors.Tests
 
             var gameResult = match.DecideWinner(p1, p2);
 
-            Assert.Equal(gameResult, GameResult.Tie);
+            Assert.Equal(GameResult.Tie,gameResult);
         }
     }
 }
